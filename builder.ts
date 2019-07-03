@@ -1,7 +1,6 @@
 export type IBuilder<T> = {
-    [k in keyof T]: (arg: T[k]) => IBuilder<T>} & {build(): T};
-
-    
+    [k in keyof T]: (arg: T[k]) => IBuilder<T>
+    } & {build(): T};
 export function Builder<T>(): IBuilder<T> {
     const built: any = {};
     const builder = new Proxy({}, {
